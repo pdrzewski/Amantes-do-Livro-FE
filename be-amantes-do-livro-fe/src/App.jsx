@@ -9,7 +9,7 @@ function App() {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
-        {/* Futuramente: <Route path="/home" element={<Home />} /> */}
+        {/* Futuramente: <Route path="/index" element={<Index />} /> ou cadastrar livro */}
       </Routes>
     </Router>
   );

@@ -13,13 +13,12 @@ export default function Cadastro() {
     <div className="auth-container">
       <div className="auth-card">
         <h1>Criar Conta</h1>
-        <p>Preencha os dados para se cadastrar no sistema.</p>
-
+        <p>Preencha os dados abaixo</p>
+        
         <CadastroForm onSuccess={handleCadastroSuccess} />
 
         <p className="auth-link">
-          Já tem uma conta?{' '}
-          <Link to="/login">Faça login aqui</Link>
+          Já tem conta? <Link to="/login">Faça login</Link>
         </p>
       </div>
     </div>

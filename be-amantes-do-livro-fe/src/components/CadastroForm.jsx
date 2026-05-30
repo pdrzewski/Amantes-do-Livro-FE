@@ -24,7 +24,7 @@ export default function CadastroForm({ onSuccess }) {
       await api.post('/login/cadastrar', form);
       onSuccess?.();
     } catch (err) {
-      setError(err.response?.data?.message || 'Erro ao realizar cadastro');
+      setError(err.response?.data?.message || 'Erro ao realizar o cadastro');
     } finally {
       setLoading(false);
     }
@@ -32,10 +32,49 @@ export default function CadastroForm({ onSuccess }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="usuario" placeholder="Usuário" value={form.usuario} onChange={handleChange} required />
-      <input type="email" name="email" placeholder="E-mail" value={form.email} onChange={handleChange} required />
-      <input type="text" name="nome" placeholder="Nome completo" value={form.nome} onChange={handleChange} required />
-      <input type="password" name="senha" placeholder="Senha" value={form.senha} onChange={handleChange} required />
+      <div className="input-group">
+        <label>Usuário</label>
+        <input
+          type="text"
+          name="usuario"
+          value={form.usuario}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="input-group">
+        <label>E-mail</label>
+        <input
+          type="email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="input-group">
+        <label>Nome Completo</label>
+        <input
+          type="text"
+          name="nome"
+          value={form.nome}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="input-group">
+        <label>Senha</label>
+        <input
+          type="password"
+          name="senha"
+          value={form.senha}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
       {error && <p className="error">{error}</p>}
 

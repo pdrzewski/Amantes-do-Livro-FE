@@ -17,7 +17,7 @@ export default function LoginForm({ onSuccess }) {
 
     try {
       await api.post('/login/entrar', form);
-      onSuccess?.(); // chama função quando der certo (ex: redirecionar)
+      onSuccess?.();
     } catch (err) {
       setError(err.response?.data?.message || 'Usuário ou senha incorretos');
     } finally {
@@ -27,22 +27,27 @@ export default function LoginForm({ onSuccess }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="usuario"
-        placeholder="Usuário"
-        value={form.usuario}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="password"
-        name="senha"
-        placeholder="Senha"
-        value={form.senha}
-        onChange={handleChange}
-        required
-      />
+      <div className="input-group">
+        <label>Usuário</label>
+        <input
+          type="text"
+          name="usuario"
+          value={form.usuario}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="input-group">
+        <label>Senha</label>
+        <input
+          type="password"
+          name="senha"
+          value={form.senha}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
       {error && <p className="error">{error}</p>}
 

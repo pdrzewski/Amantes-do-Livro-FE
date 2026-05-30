@@ -6,20 +6,19 @@ export default function Login() {
 
   const handleLoginSuccess = () => {
     alert('Login realizado com sucesso! 🎉');
-    navigate('/home'); // Vamos mudar isso depois quando criar a Home
+    navigate('/home');
   };
 
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1>Entrar</h1>
-        <p>Bem-vindo de volta! Faça login para continuar.</p>
-
+        <h1>Bem-vindo</h1>
+        <p>Faça login para acessar sua conta</p>
+        
         <LoginForm onSuccess={handleLoginSuccess} />
 
         <p className="auth-link">
-          Não tem uma conta?{' '}
-          <Link to="/cadastro">Cadastre-se aqui</Link>
+          Não tem conta? <Link to="/cadastro">Cadastre-se</Link>
         </p>
       </div>
     </div>
