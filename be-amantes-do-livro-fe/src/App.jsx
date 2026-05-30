@@ -1,8 +1,18 @@
-import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './pages/Login';
+import Cadastro from './pages/Cadastro';
 
-const api = axios.create({
-  baseURL: 'http://localhost:8080',
-  withCredentials: true,
-});
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        {/* Futuramente: <Route path="/home" element={<Home />} /> */}
+      </Routes>
+    </Router>
+  );
+}
 
-export default api;
+export default App;
